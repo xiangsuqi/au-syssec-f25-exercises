@@ -17,6 +17,6 @@ Exercises
 - [11.03.2023 Transport Layer Security](06_transport_layer_security)
 - [18.03.2023 Software Security I](07_software_security_i)
 - [25.03.2023 Software Security II](08_software_security_ii)
-- [01.04.2023 Software Security II](09_software_security_iii)
-- [08.04.2023 Software Security III](10_microarch_security)
+- [01.04.2023 Software Security III](09_software_security_iii)
+- [08.04.2023 Microarchitecture Security](10_microarch_security)
 - [22.04.2023 Web Security](11_DVWA)
