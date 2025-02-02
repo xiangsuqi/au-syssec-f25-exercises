@@ -70,7 +70,7 @@ PPM specification: http://netpbm.sourceforge.net/doc/ppm.html
 
 ## Exercise 1: Electronic Code Book (ECB)
 
-Implement ECB encryption and decryption functionality in the `PPMImage` class
+Read the implementation for ECB encryption and decryption in the `PPMImage` class
 using the PyCryptodome library.  Take a look at the
 [examples](https://pycryptodome.readthedocs.io/en/latest/src/examples.html#encrypt-data-with-aes)
 and [the relevant API
