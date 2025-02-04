@@ -5,20 +5,13 @@
 
 Install Python, the PyCryptodome library, and ImageMagick.
 
-### Ubuntu 24.04 / Debian 12
+### Ubuntu 24.04 / WSL
 
 ```
-sudo apt install python3 python3-pip imagemagick python3-pycryptodome
+sudo apt install python3 imagemagick python3-pycryptodome
 ```
 
-If the above did not work and module `Crypto` cannot be found, you should try the alternative below:
-
-```
-pip3 install pycryptodome
-```
-### WSL
-
-If WSL imposes restrictions on package installation, create a virtual environment.
+If the above did not work and module `Crypto` cannot be found, create a virtual environment.
 
 ```
 python -m venv env
