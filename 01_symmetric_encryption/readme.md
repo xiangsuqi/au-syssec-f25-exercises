@@ -15,7 +15,7 @@ If the above did not work and module `Crypto` cannot be found, create a virtual 
 
 ```
 python -m venv env
-source env/activate
+source env/bin/activate
 pip install pycryptodome
 ```
 
