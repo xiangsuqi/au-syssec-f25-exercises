@@ -21,7 +21,7 @@ pip3 install pycryptodome
 If WSL imposes restrictions on package installation, create a virtual environment.
 
 ```
-python -m venv ven
+python -m venv env
 source env/activate
 pip install pycryptodome
 ```
