@@ -9,7 +9,7 @@ For this exercise, you must again need the PyCryptodome library we used last wee
    in bits (size of the modulus N); (ii) an integer to be encrypted (modulo N):
 
 ```
-$ python3 rsa.py 1024 <plaintext>
+python3 rsa.py 1024 <plaintext>
 ```
 
 2. Take a look at the implementation to see a direct translation from the
@@ -41,7 +41,7 @@ Lab](https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_PKI/).
    can use a browser or command-line OpenSSL:
 
 ```
-$ openssl s_client -connect <hostname>:443 -showcerts
+openssl s_client -connect <hostname>:443 -showcerts
 ```
 
 2. The command will show you the certificate chain from a root certificate
@@ -64,7 +64,7 @@ $ openssl s_client -connect <hostname>:443 -showcerts
    `cert_0.pem` is the server) you can use the command below:
 
 ```
-$ openssl verify -no-CAstore -no-CApath -show_chain -verbose -trusted cert_2.pem -untrusted cert_1.pem cert_0.pem
+openssl verify -no-CAstore -no-CApath -show_chain -verbose -trusted cert_2.pem -untrusted cert_1.pem cert_0.pem
 ```
 
 5. We will now see what is exactly being performed in this verification
@@ -73,7 +73,7 @@ $ openssl verify -no-CAstore -no-CApath -show_chain -verbose -trusted cert_2.pem
    intermediate certificate with the command below:
 
 ```
-$ openssl x509 -in cert_1.pem -noout -text -modulus
+openssl x509 -in cert_1.pem -noout -text -modulus
 ```
 
 6. We can also extract a signature of a certificate by running the command
@@ -86,8 +86,8 @@ $ openssl x509 -in cert_1.pem -noout -text -modulus
    being signed:
 
 ```
-$ openssl asn1parse -i -in cert_0.pem -strparse 4 -out cert0_body.bin -noout
-$ sha256sum cert0_body.bin
+openssl asn1parse -i -in cert_0.pem -strparse 4 -out cert0_body.bin -noout
+sha256sum cert0_body.bin
 ```
 
 8. Now let us use Python to verify the signature by defining Exponent, Modulus,
@@ -130,13 +130,13 @@ quotes) using the SHA-256 implementation of Python's standard `hashlib` module.
 You run the program with the command line below:
 
 ```
-$ python mac.py
+python mac.py
 ```
 
 The result should be the same as running the following command in your terminal:
 
 ```
-$ echo -n "VERY_SECRET_KEY_This is a test message." | sha256sum
+echo -n "VERY_SECRET_KEY_This is a test message." | sha256sum
 0e3542399804e2ddc76f80c59858f82a41d21280cff7b64ded86edbb0bab191a  -
 ```
 
