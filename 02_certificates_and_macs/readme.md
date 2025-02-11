@@ -89,6 +89,7 @@ openssl x509 -in cert_1.pem -noout -text -modulus
 openssl asn1parse -i -in cert_0.pem -strparse 4 -out cert0_body.bin -noout
 sha256sum cert0_body.bin
 ```
+On a Mac, the SHA256 command is actually `shasum -a 256 cert0_body.bin`.
 
 8. Now let us use Python to verify the signature by defining Exponent, Modulus,
    Signature and the Hash as big integers and performing the computation. See
