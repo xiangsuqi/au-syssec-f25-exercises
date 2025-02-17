@@ -11,7 +11,7 @@ Exercises
 
 - [04.02.2023 Symmetric Encryption](01_symmetric_encryption/)
 - [11.02.2023 Certificates and MACs](02_certificates_and_macs/)
-- [18.02.2023 Weak Entropy and Authentication Mechanisms](03_weak_entropy_and_authentication_mechanisms/)
+- [18.02.2023 ECC, Weak Entropy and Authentication Mechanisms](03_ecc_weak_entropy_and_authentication_mechanisms/)
 - [25.02.2023 Link Layer Security](04_link_layer_security)
 - [04.03.2023 Network Layer Security](05_network_layer_security)
 - [11.03.2023 Transport Layer Security](06_transport_layer_security)
