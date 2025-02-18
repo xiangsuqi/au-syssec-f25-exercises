@@ -20,8 +20,8 @@ def is_on_curve(P):
 
 # Add points in the curve
 def point_addition(P, Q):
-	assert is_on_curve(P), "Point P is not on the curve"
-	assert is_on_curve(Q), "Point Q is not on the curve"
+    assert is_on_curve(P), "Point P is not on the curve"
+    assert is_on_curve(Q), "Point Q is not on the curve"
     """ Add two distinct points P and Q in affine coordinates """
     if P is None:
         return Q
@@ -40,7 +40,7 @@ def point_addition(P, Q):
     return (x3, y3)
 
 def point_doubling(P):
-	assert is_on_curve(P), "Point P is not on the curve"
+    assert is_on_curve(P), "Point P is not on the curve"
     """ Double a point P in affine coordinates """
     if P is None:
         return None
