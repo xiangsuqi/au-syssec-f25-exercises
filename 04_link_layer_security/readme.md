@@ -33,7 +33,7 @@ Please notice that cloning software from a random GitHub repository and running 
 
 ## Preliminaries: scanning the network
 
-There are two access points, with SSIDs `NETSEC` and `SYSSEC`, that you need to find the link layer addresses for.
+There are two access points, with SSIDs `SYSSEC` and `NETSEC`, that you need to find the link layer addresses for.
 These two networks have different IP ranges: `192.168.1.0/24` and `192.168.2.0/24`, respectively.
 
 ### GNU/Linux
