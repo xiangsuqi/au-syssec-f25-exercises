@@ -4,11 +4,11 @@ There are some hints and troubleshooting information [in this page](hints.md). M
 
 **Hint**: In this and following weeks you will be asked to operate multiple environments simultaneously, such as the guest operating system inside the VM, the host operating system and a mobile device. If it gets a bit overwhelming or setting up your machine fails for some reason, you can always pair up with a colleague.
 
-## Preliminaries: Software installation
+## Preliminaries: software installation
 
 You should begin by installing required dependencies. If you are completely new to Wireshark, a nice tutorial for beginners can be found [here](https://www.youtube.com/watch?v=TkCSr30UojM).
 
-### Ubuntu 22.04 Virtual Machine
+### Ubuntu 24.04 VM
 
 ```
 sudo apt install net-tools aircrack-ng dsniff wireshark
@@ -27,14 +27,14 @@ sudo brew install aircrack-ng libpcap libnet
 ```
 
 You should install Wireshark natively by downloading from the [official website](https://www.wireshark.org/download.html).
-Please use this experimental port of the `arpspoof` command to Mac OS X for [Intel](https://github.com/KasperFan/macos-arpspoof).
+Please use this [experimental port](https://github.com/KasperFan/macos-arpspoof) of the `arpspoof` command to Mac OS X.
 
 Please notice that cloning software from a random GitHub repository and running it with root privileges goes against **everything** we teach in this course!
 
-## Preliminaries: Scanning the network
+## Preliminaries: scanning the network
 
-There are two access points, with SSIDs `NETSEC` and `SYSSEC`.
-These two networks have different addresses: `192.168.1.0/24` and `192.168.2.0/24`, respectively.
+There are two access points, with SSIDs `NETSEC` and `SYSSEC`, that you need to find the link layer addresses for.
+These two networks have different IP ranges: `192.168.1.0/24` and `192.168.2.0/24`, respectively.
 
 ### GNU/Linux
 
