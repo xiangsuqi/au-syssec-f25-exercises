@@ -16,7 +16,7 @@ sudo apt install net-tools aircrack-ng dsniff wireshark
 
 Wireshark will ask about users without priviledges being able to capture packets, for which you should answer affirmatively. You should also add your user to the group `wireshark` so that no root priviledges are required for sniffing (after adding your user to a new group, you need to logout and login again for the change to apply).
 
-### WSL
+### Windows / WSL
 
 At the time of writing, Wireshark or ARP spoofing do not play well with the WSL virtualized network interface. Install native versions of [Wireshark](https://www.wireshark.org/download.html) and an [ARP spoofer](https://github.com/alandau/arpspoof).
 
@@ -44,17 +44,16 @@ You can scan the wireless networks by running:
 iwlist <wifi_interface> scan
 ```
 
-### macOS
-
-Hold the `option` key and click the wireless icon in the menu bar, and it should give information about the various wireless networks.
-
-### Windows
+### Windows / WSL
 
 Apparently, you can scan the wireless networks by running the following command *when disconnected*:
 
 ```
 netsh wlan show networks mode=bssid
 ```
+### macOS
+
+Hold the `option` key and click the wireless icon in the menu bar, and it should give information about the various wireless networks.
 
 ## Exercise 1: Dictionary Attack
 
