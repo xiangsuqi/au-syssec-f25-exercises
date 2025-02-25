@@ -1,8 +1,6 @@
 # Exercises: Link Layer Security
 
-There are some hints and troubleshooting information [in this page](hints.md). Make sure to check it if you have problems or if you are running a native enrivonment without support to virtualization (such as an ARM-based Mac). 
-
-**Hint**: In this and following weeks you will be asked to operate multiple environments simultaneously, such as the guest operating system inside the VM, the host operating system and a mobile device. If it gets a bit overwhelming or setting up your machine fails for some reason, you can always pair up with a colleague.
+In this and following weeks you will be asked to operate multiple environments simultaneously, such as the guest operating system inside the VM, the host operating system and a mobile device. If it gets a bit overwhelming or setting up your machine fails for some reason, you can always pair up with a colleague.
 
 ## Preliminaries: software installation
 
@@ -16,7 +14,7 @@ sudo apt install net-tools aircrack-ng dsniff wireshark
 
 Wireshark will ask about users without priviledges being able to capture packets, for which you should answer affirmatively. You should also add your user to the group `wireshark` so that no root priviledges are required for sniffing (after adding your user to a new group, you need to logout and login again for the change to apply).
 
-### Windows / WSL
+### WSL
 
 At the time of writing, Wireshark or ARP spoofing do not play well with the WSL virtualized network interface. Install native versions of [Wireshark](https://www.wireshark.org/download.html) and an [ARP spoofer](https://github.com/alandau/arpspoof).
 
@@ -35,6 +33,7 @@ Please notice that cloning software from a random GitHub repository and running 
 
 There are two access points, with SSIDs `SYSSEC` and `NETSEC`, that you need to find the link layer addresses for.
 These two networks have different IP ranges: `192.168.1.0/24` and `192.168.2.0/24`, respectively.
+You can find the link layer addresses using your **native** environment by using the commands below.
 
 ### GNU/Linux
 
@@ -44,16 +43,20 @@ You can scan the wireless networks by running:
 iwlist <wifi_interface> scan
 ```
 
-### Windows / WSL
+### macOS
+
+The *deprecated* `airport`command lists the networks
+```
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
+```
+
+### Windows
 
 Apparently, you can scan the wireless networks by running the following command *when disconnected*:
 
 ```
 netsh wlan show networks mode=bssid
 ```
-### macOS
-
-Hold the `option` key and click the wireless icon in the menu bar, and it should give information about the various wireless networks.
 
 ## Exercise 1: Dictionary Attack
 
@@ -73,8 +76,6 @@ aircrack-ng -w <dictionary_file> -b <link_layer_address> <packet_capture>
 ```
 
 You should be able to obtain the correct password after a few minutes of computation.
-
-**Hint**: You can find the link layer address by looking at the packet captures in the repository. If you want to find it yourself by scanning the network, hints for your _native_ operating system can be found [here](hints.md).
 
 ## Exercise 2: Sniffing the network
 
