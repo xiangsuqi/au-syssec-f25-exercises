@@ -123,7 +123,8 @@ In order to achieve your goal, generate an RSA key pair in PEM format and plug t
 $ mitmproxy --showhost -s mitm_pk.py
 ```
 
-Now the user will use a different public key, so you recover the secret message from the RSA encryption provided by the client. [This link may be useful](https://pycryptodome.readthedocs.io/en/latest/src/examples.html#encrypt-data-with-rsa)
+Now the user will use a different public key, so you recover the secret message from the RSA encryption provided by the client.
+The `client.py` file in the repository or [this link](https://pycryptodome.readthedocs.io/en/latest/src/examples.html#encrypt-data-with-rsa)  may be useful.
 
 ## BONUS Exercise: ARP Spoofing against router
 **The big picture:**\
