@@ -146,7 +146,7 @@ However, we can still impersonate the router.
 Choose randomly one address in the IP range `192.168.1.1-69` or `192.168.2.1-69` (depending if you are connected to `SYSSEC` or `NETSEC`) and manually configure this address as the gateway in your mobile device. You can use the same IP address you received before from DHCP for the *victim*. Now run the ARP spoofing attack below:
 
 ```
-sudo arpspoof -i <interface> -t <victim> <gateway>
+sudo arpspoof -i <interface> -t <victim> <router>
 ```
 
 You will notice that connectivity between the mobile device and the Web server might stop, since traffic will be redirected to the VM and not be routed further.
@@ -154,7 +154,7 @@ You will notice that connectivity between the mobile device and the Web server m
 If you are running native Windows, you should instead run:
 
 ```
-arpspoof.exe <gateway> <mobile>
+arpspoof.exe <router> <victim>
 ```
 
 In the case of Windows, `arpspoof.exe` takes care of the routing, so you can skip to the part of running `mitmproxy`.
