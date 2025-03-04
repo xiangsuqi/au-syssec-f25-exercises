@@ -93,7 +93,7 @@ $ mitmproxy --showhost
 If everything is working correctly, the *victim* should be able to access the Web server `http://192.168.3.X/`. While the *victim* is doing this, you should start seeing captured flows in the `mitmproxy` window on the *MitM* machine..
 In the `mitmproxy` interface, you can select a flow by using the arrows and pressing ENTER, while pressing the letter `q` goes back to the overview screen.
 
-1. Try accessing `http://192.168.3.X/` on the *victim* and using the *MitM* machine to change what the *victim* sees!
+1. Try accessing `http://192.168.3.X/` on the *victim*. Later you will use the *MitM* machine to change what the *victim* sees!
 
 2. Perform a login with `admin`/`admin` on the *victim* and locate the credentials on the *MitM* machine.
 
