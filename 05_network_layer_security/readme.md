@@ -93,7 +93,7 @@ $ mitmproxy --showhost
 If everything is working correctly, the *victim* should be able to access the Web server `http://192.168.3.X/`. While the *victim* is doing this, you should start seeing captured flows in the `mitmproxy` window on the *MitM* machine..
 In the `mitmproxy` interface, you can select a flow by using the arrows and pressing ENTER, while pressing the letter `q` goes back to the overview screen.
 
-1. Try accessing `http://192.168.3.X/` on the *victim* and using the *MitM* machine to change what the *victim* sees!
+1. Try accessing `http://192.168.3.X/` on the *victim*. Later you will use the *MitM* machine to change what the *victim* sees!
 
 2. Perform a login with `admin`/`admin` on the *victim* and locate the credentials on the *MitM* machine.
 
@@ -106,7 +106,9 @@ Let's use the scripting capability of `mitmproxy` to mount an *active* attack.
 Our simple website has a login capability, for which the credentials are `admin`/`admin`.
 
 Now access the website through your mobile device with the right credentials and login. You should now be able to access the `View Secrets` and `Upload Secrets` functionalities.
+
 The `View Secrets` functionality will just show you some secret text, which should be visible in `mitmproxy` as well.
+We will use the acripting capabilities of `mitmproxy` to change what the *victim* receives and sees.
 Use the provided file `mitm.py` as a starting point and restart `mitmproxy` with the command below:
 
 ```
@@ -144,7 +146,7 @@ However, we can still impersonate the router.
 Choose randomly one address in the IP range `192.168.1.1-69` or `192.168.2.1-69` (depending if you are connected to `SYSSEC` or `NETSEC`) and manually configure this address as the gateway in your mobile device. You can use the same IP address you received before from DHCP for the *victim*. Now run the ARP spoofing attack below:
 
 ```
-sudo arpspoof -i <interface> -t <victim> <gateway>
+sudo arpspoof -i <interface> -t <victim> <router>
 ```
 
 You will notice that connectivity between the mobile device and the Web server might stop, since traffic will be redirected to the VM and not be routed further.
@@ -152,7 +154,7 @@ You will notice that connectivity between the mobile device and the Web server m
 If you are running native Windows, you should instead run:
 
 ```
-arpspoof.exe <gateway> <mobile>
+arpspoof.exe <router> <victim>
 ```
 
 In the case of Windows, `arpspoof.exe` takes care of the routing, so you can skip to the part of running `mitmproxy`.
