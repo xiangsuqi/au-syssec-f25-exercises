@@ -26,7 +26,7 @@ Start the VM and make sure that you can `ping 192.168.3.W` and access the HTTP a
 ## Exercise 1: Malicious-in-the-middle against HTTP in proxy mode
 
 Connect a mobile device to the wireless network and take note of its address `192.168.1/2.X`, referred from here on as *victim*.
-You can typically find the IP address of your mobile device by looking into the network configurations.
+You can find the IP address of your mobile device by looking into the network configurations.
 In the VM, type `ifconfig` or `ip a` in a terminal and take note of its IP address `192.168.1/2.Z`
 
 **Observation**: If you do not have a mobile device available, ask a colleague to be the client or use the host machine as the victim.
@@ -44,9 +44,20 @@ Access the Login page in the *victim*, enter some credentials and observe that t
 You will also notice errors about HTTPS connections not being established, ignore those for now.
 
 Before you proceed to the next exercise, visit the page `http://mitm.it` in your *victim* device. This will allow you to download the self-signed certificate under which `mitmproxy` signs a certificate for each server it impersonates.
-Download the certificate but do not install it yet.
+Download the certificate, but do not install it yet.
 
-## Exercise 2: Malicious-in-the-middle against HTTP in transparent mode
+## Exercise 2: Malicious-in-the-middle against HTTPS
+
+Now try accessing `https://192.168.3.W/` in your *victim* device.
+You should get another warning about a non-trusted certificate! Inspect the certificate and check that it is suspicious indeed. :)
+After accepting the new certificate, you should be able to access the website normally.
+Make sure you access the Login page again and that captured credentials are still visible.
+
+Finally, install the `mitmproxy` certificate you downloaded previously in your *victim* device.
+On Android, this can be done in the *Encryption & credentials* part of the configuration.
+This will remove any warnings about untrusted self-signed certificates for any of the web servers in the `192.168.3.0` subnet.
+
+## Exercise 3: Malicious-in-the-middle against HTTP in transparent mode
 
 Change the network configuration of your *victim* device manually to remove the proxy and customize the router. On Android, this means changing the `IP Settings` to `Static`.
 Use the same `192.168.1/2.X` as the IP address, `192.168.1/2.Z` as the Gateway/DNS and `255.255.255.0` as the network mask.
@@ -82,31 +93,33 @@ If you are running `mitmproxy` in your host system directly (without a VM), make
 sudo arpspoof -i <interface> -t <victim> 192.168.3.W
 ```
 
-## Exercise 3: Malicious-in-the-middle against HTTPS
+## BONUS: Manipulate traffic in mitmproxy
 
-Now try accessing `https://192.168.3.W/` in your *victim* device.
-You should get another warning about a non-trusted certificate! Inspect the certificate and check that it is suspicious indeed. :)
-After accepting the new certificate, you should be able to access the website normally.
-Make sure you access the Login page again and that captured credentials are still visible.
-
-Finally, install the `mitmproxy` certificate you downloaded previously in your *victim* device.
-This will remove any warnings about untrusted self-signed certificates for any of the web servers in the `192.168.3.0` subnet.
-
-## Exercise 4: Manipulate traffic in mitmproxy
+**Note**: This part of the exercise was changed recently and not widely tested across multiple browsers/platforms.
 
 Let's use the scripting capability of `mitmproxy` to mount an _active_ attack.
 Our simple website has a login capability, for which the credentials are `admin`/`admin`.
 
 Now access the website through your *victim* device with the right credentials and login. You should now be able to access the `View Secrets` and `Upload Secrets` functionalities.
 The `View Secrets` functionality will just show you some secret text, which should be visible in `mitmproxy` as well.
-The `Upload Secrets` functionality is more interesting and allows the user to encrypt a message under a public key returned by the server.
+The `Upload Secrets` functionality is more interesting and allows the user to encrypt a message provided in the text field under a public key returned by the server.
+The website has been improved from last week to include client-side Javascript, so one can just type the intended plaintext to be encrypted.
+
 Your final task is to _replace_ that public key with a key pair for which you know the private key (to be able to decrypt).
 The code for the server portion is provided for reference in the repository inside the folder `simple-website`.
 
-In order to achieve your goal, generate an RSA key pair in PEM format and plug the values marked as TODO in the file `simple-website/mitm_pk.py`. Now restart `mitmproxy` with the command below:
+In order to achieve your goal, generate an RSA key pair in PEM format and insert the public key marked as TODO in the file `simple-website/mitm_pk.py`.
+You can generate the key pair by running the following commands:
+
+```
+$ openssl genrsa -out private.pem 2048
+$ openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+```
+
+Now restart `mitmproxy` with the command below:
 
 ```
 $ mitmproxy --ssl-insecure --mode transparent --showhost -s mitm_pk.py
 ```
 
-Recover the message from the encryption provided by the client. The website has been improved from last week to include client-side Javascript, so one can just type the intended plaintext.
+Recover the message from the encryption provided by the client. The `rsa-decrypt.py` file in this repository contains the basic code.
