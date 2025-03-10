@@ -106,7 +106,7 @@ The code for the server portion is provided for reference in the repository insi
 In order to achieve your goal, generate an RSA key pair in PEM format and plug the values marked as TODO in the file `simple-website/mitm_pk.py`. Now restart `mitmproxy` with the command below:
 
 ```
-$ mitmproxy --mode transparent --showhost -s mitm_pk.py
+$ mitmproxy --ssl-insecure --mode transparent --showhost -s mitm_pk.py
 ```
 
 Recover the message from the encryption provided by the client. The website has been improved from last week to include client-side Javascript, so one can just type the intended plaintext.
