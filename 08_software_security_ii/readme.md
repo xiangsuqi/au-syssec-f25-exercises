@@ -43,7 +43,7 @@ For this you have to set the registers in the following way:
 
 
 
-## 3. Implementing the Exploit (Bonus)
+## 3. BONUS: Implementing the Exploit
 
 The binary is also running on a server, and you can talk to it via
 [`netcat`](https://man.archlinux.org/man/netcat.1):
