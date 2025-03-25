@@ -4,6 +4,7 @@
 Today we will use return-oriented programming (ROP) to exploit a stack-based
 buffer overflow in the vulnerable program `rop_me`.
 
+You will need to install `pwntools` in your Python environment.
 
 ## 1. Finding ROP Gadgets
 
