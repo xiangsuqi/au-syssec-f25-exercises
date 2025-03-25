@@ -28,7 +28,7 @@ remember to include the address of the gadget.
 
 
 Use the provided ROP gadgets to compose a chain that will spawn a shell with
-the `execve` syscall.
+the `execve` syscall. You can reuse gadgets too, just use the literal value sheets.
 ```c
 execve("/bin/sh", {NULL}, {NULL});
 ```
