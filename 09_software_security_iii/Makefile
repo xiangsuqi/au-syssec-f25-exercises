@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -g -O3 -w
-# CFLAGS = -g -O3 -Wall -Wextra
+CFLAGS = -g -O0 -w
+# CFLAGS = -g -O0 -Wall -Wextra
 
 .phony: all clean
 
