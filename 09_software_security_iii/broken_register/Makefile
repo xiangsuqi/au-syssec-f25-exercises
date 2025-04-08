@@ -1,4 +1,4 @@
-CC=gcc
+CC=afl-gcc
 CFLAGS=-Wall -Wextra -std=gnu11 -m32 -no-pie -fstack-protector
 
 .phony: clean
