@@ -91,7 +91,7 @@ only way to access the secret is through the above sandbox function. From the pr
 learned that although the true-branch will never be executed if x is larger than the buffer size, at microarchitectural level,
 it can be executed and some traces can be left behind when the execution is reverted.
 
-**Your task**: Please compile and execute [soectre.c](spectre.c), noting whether
+**Your task**: Please compile and execute [spectre.c](spectre.c), noting whether
 you are able to steal the secret value. If there is a lot of noise in the side channel, you may not get consistent
 results every time. To overcome this, you should execute the program multiple times and see whether you
 can get the secret value.
