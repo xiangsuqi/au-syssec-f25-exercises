@@ -48,7 +48,7 @@ int main() {
 	size_t index_beyond = (size_t)(secret - (char *)buffer);
 	printf("secret: %p \n", secret);
 	printf("buffer: %p \n", buffer);
-	printf("index of secret (out of bound): %lu \n", index_beyond);
+	printf("index of secret (out of bound): %ld \n", index_beyond);
 	spectreAttack(index_beyond);
 	reloadSideChannel();
 	return (0);
