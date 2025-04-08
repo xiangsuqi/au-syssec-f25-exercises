@@ -15,7 +15,7 @@ is much faster. When data is fetched from the main memory, it is usually stored 
 so it can be quickly found if the same data is used again (locality principle).
 Hence, ache memory is used to hide the performance difference between the high-speed CPU and the slow main memory.
 
-Let us see the time difference. In [cache_time.c](cache_time.c), we have an array of size `10*4096`.
+Let us see the time difference. In [cache-time.c](cache-time.c), we have an array of size `10*4096`.
 We first access two of its elements, `array[3*4096]` and `array[7*4096]`. Therefore, the pages containing these two elements will be
 cached. We then read the elements from `array[0*4096]` to `array[9*4096]` and measure the time
 spent in the memory access. In the code, the CPU’s timestamp (TSC) counter is read before and after the memory reading.
