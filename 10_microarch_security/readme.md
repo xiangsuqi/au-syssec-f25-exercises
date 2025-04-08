@@ -65,8 +65,8 @@ The code in [out-of-order.c](out-of-order.c) uses the FLUSH+RELOAD functions fro
 2. Once the CPU is trained, evict a variable from memory to start a transient window
 3. Perform an invalid memory access within the transient window to force the CPU to speculatively read the value
 
-**Your task**: Compile the code and run it to observe when line 58 is executed or not.
-Please also comment line 55 and execute again, and think about what you observe.
+**Your task**: Compile the code and run it to observe when the read inside `victim` is executed or not.
+Please also comment line 30 and execute again, and think about what you observe.
 After you are done with this experiment, uncomment it, so the subsequent tasks are not affected.
 
 ## Exercise 4: The Spectre Attack
