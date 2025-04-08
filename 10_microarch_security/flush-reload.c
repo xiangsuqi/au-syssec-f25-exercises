@@ -3,11 +3,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "flush-reload.h"
-
 uint8_t array[256 * 4096];
 int temp;
 unsigned char secret = 94;
+
+#include "flush-reload.h"
 
 /* cache hit time threshold assumed */
 #define CACHE_HIT_THRESHOLD (80)
