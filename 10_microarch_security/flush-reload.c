@@ -13,6 +13,10 @@ unsigned char secret = 94;
 
 #include "flush-reload.h"
 
+void victim() {
+	temp = array[secret*4096 + DELTA];
+}
+
 int main(int argc, const char **argv) {
 	flushSideChannel();
 	victim();
